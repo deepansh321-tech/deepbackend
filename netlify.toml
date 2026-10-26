@@ -1,0 +1,13 @@
+[build]
+  base = ""
+  # Overrides the dashboard build command (currently "NA"); no build step is needed
+  command = "echo No build step required"
+  publish = "public"
+  functions = "netlify/functions"
+
+# Send every request to the Express app running as a Netlify Function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
